@@ -29,4 +29,28 @@ public class GeneraContrasenia {
         } while (!AnalizaContrasenia.verificarContrasenia(contrasenia).equals("SEGURA"));
         return contrasenia;
     }
+
+    private static Character seleccionarCaracterSinSimbolos() {
+        String numeros = "0123456789";
+        String minusculas = "abcdefghijklmnñopqrstuvwxyz";
+        String mayusculas = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+
+        char seleccionado = 0;
+
+        switch ((int) (Math.random() * 3)) {
+            case 0 -> seleccionado = numeros.charAt((int) (Math.random() * numeros.length()));
+            case 1 -> seleccionado = mayusculas.charAt((int) (Math.random() * mayusculas.length()));
+            case 2 -> seleccionado = minusculas.charAt((int) (Math.random() * minusculas.length()));
+        }
+        return seleccionado;
+    }
+    public static String generarContraseniasinSimbolos() {
+
+        String contrasenia = "";
+
+        do {
+            contrasenia += seleccionarCaracterSinSimbolos();
+        } while (!AnalizaContrasenia.verificarContrasenia(contrasenia).equals("MEDIANAMENTE SEGURA"));
+        return contrasenia;
+    }
 }

@@ -59,13 +59,14 @@ public class AnalizaContrasenia {
             boolDigitos += convertirBooleanAInt(contenerDigito(contrasenia.charAt(i)));
             boolMinusculas += convertirBooleanAInt(contenerLetrasMinus(contrasenia.charAt(i)));
             boolMayusculas += convertirBooleanAInt(contenerLetrasMayus(contrasenia.charAt(i)));
-            boolLargo += convertirBooleanAInt(verificarLargoMinimo(contrasenia));
             boolsimbolos += convertirBooleanAInt(contenerSimbolos(contrasenia.charAt(i)));
         }
+        boolLargo += convertirBooleanAInt(verificarLargoMinimo(contrasenia));
         mensaje = generarMensaje(boolDigitos, boolMinusculas, boolMayusculas, boolLargo, boolsimbolos);
     }
 
     private static int convertirBooleanAInt(boolean bool) {
+
         return bool ? 1 : 0;
     }
 
@@ -116,6 +117,6 @@ public class AnalizaContrasenia {
     }
 
     private static boolean verificarLargoMinimo(String contrasenia) {
-        return contrasenia.length() >= 15;
+        return contrasenia.length() >= 18;
     }
 }
